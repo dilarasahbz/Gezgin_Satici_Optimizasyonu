@@ -2,7 +2,7 @@
 
 Pamukkale Üniversitesi, Endüstri Mühendisliği Bölümü — IENG435 Problem Çözmede Sezgisel Yöntemler dönem projesi.
 
-**Hazırlayan:** 21255010 Dilara Şahbaz
+**Hazırlayan:**  Dilara Şahbaz
 **Öğretim Üyesi:** Prof. Dr. Can Berk Kalaycı
 **Dönem:** Bahar, 2024-2025
 
