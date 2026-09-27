@@ -45,26 +45,4 @@ Her nesilde operatör seçimi rastgele olup, hangi çaprazlama/mutasyon türün�
 
 ### Sonuç
 
-Berlin52 dahil test edilen veri setlerinde, popülasyon 30 ve iterasyon 1e5 sabit tutulduğunda elitizm oranı 0.1, çaprazlama oranı 0.5, mutasyon oranı 0.01 kombinasyonu genellikle en iyi sonuçları vermiştir. Detaylı tablo ve karşılaştırmalar `Sezgisel_proje.docx`/`.pdf` içindedir.
-
-## Çalıştırma
-
-Gereken kütüphaneler: `numpy`, `pandas`, `networkx`, `matplotlib`, `openpyxl`
-
-```bash
-pip install numpy pandas networkx matplotlib openpyxl
-```
-
-Pilot çalışmayı çalıştırmak için (`dataSets/` klasörünün çalışma dizininde olması gerekir):
-
-```bash
-python pilot_calisma.py
-```
-
-Ana deneyi çalıştırmak için:
-
-```bash
-python kod.py
-```
-
-Not: `kod.py` her parametre kombinasyonu için 10 seed × tüm kombinasyonlar çalıştırdığından tamamlanması uzun sürebilir (koşu başına 60 saniyelik zaman limiti mevcuttur).
+Berlin52 dahil test edilen veri setlerinde, popülasyon 30 ve iterasyon 1e5 sabit tutulduğunda elitizm oranı 0.1, çaprazlama oranı 0.5, mutasyon oranı 0.01 kombinasyonu genellikle en iyi sonuçları vermiştir. Detaylı tablo ve karşılaştırmalar `Sezgisel_proje.pdf içindedir.
