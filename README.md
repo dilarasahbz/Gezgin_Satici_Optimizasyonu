@@ -1,48 +1,44 @@
-# Gezgin Satıcı Problemi İçin Sezgisel Algoritmayla Parametre Optimizasyonu
+# Parameter Optimization for the Traveling Salesman Problem Using a Heuristic Algorithm
 
-Pamukkale Üniversitesi, Endüstri Mühendisliği Bölümü — IENG435 Problem Çözmede Sezgisel Yöntemler dönem projesi.
+Pamukkale University, Department of Industrial Engineering — IENG435 Heuristic Methods in Problem Solving term project.
 
-**Hazırlayan:**  Dilara Şahbaz
-**Öğretim Üyesi:** Prof. Dr. Can Berk Kalaycı
-**Dönem:** Bahar, 2024-2025
+**Prepared by:** Dilara Şahbaz
+**Instructor:** Prof. Dr. Can Berk Kalaycı
+**Term:** Spring, 2024-2025
 
-## Proje Özeti
+## Project Summary
 
-Bu proje, Gezgin Satıcı Problemi'ni (TSP) genetik algoritma ile çözerken algoritma parametrelerinin (popülasyon büyüklüğü, iterasyon sayısı, elitizm oranı, çaprazlama oranı, mutasyon oranı) çözüm kalitesine etkisini tam faktöriyel deneysel tasarım yöntemiyle incelemektedir. Çalışma iki aşamadan oluşur: popülasyon/iterasyon sayısını belirlemeye yönelik bir pilot çalışma, ve ardından elitizm/çaprazlama/mutasyon oranlarının test edildiği ana deney.
+This project uses a full factorial experimental design to examine the effect of algorithm parameters (population size, number of iterations, elitism rate, crossover rate, mutation rate) on solution quality when solving the Traveling Salesman Problem (TSP) with a genetic algorithm. The study consists of two phases: a pilot study to determine the population size and number of iterations, followed by the main experiment in which the elitism, crossover, and mutation rates are tested.
 
-## Klasör İçeriği
+## Folder Contents
 
-- `kod.py` — Ana genetik algoritma ve tam faktöriyel deney kodu. Berlin52 veri setinde elitizm, çaprazlama ve mutasyon oranlarının tüm kombinasyonlarını 10 farklı seed ile dener, sonuçları Excel'e yazar.
-- `pilot_calisma.py` — Pilot çalışma kodu. Farklı popülasyon büyüklüğü (30, 40, 50) ve iterasyon sayısı (10.000, 50.000, 100.000) kombinasyonlarını dener.
-- `dataSets/` — TSPLIB formatında test veri setleri: `berlin52`, `att48`, `bays29`, `a280`, `ch150`, `eil51`.
-- `Pilot_Study_Results.xlsx` — Pilot çalışma sonuçları.
-- `TSP_Parameter_Optimization_Results*.xlsx` — Ana deneyin farklı veri setleri ve parametre koşulları için sonuç dosyaları.
-- `Sezgisel_proje.docx` / `.pdf` — Proje raporu (yöntem, deney tasarımı, sonuçlar).
-- `tam_faktoriye_tasarim.docx` — Tam faktöriyel deney tasarımı tablosu.
+- `kod.py` — Main genetic algorithm and full factorial experiment code. On the Berlin52 dataset, it tries all combinations of elitism, crossover, and mutation rates with 10 different seeds and writes the results to Excel.
+- `pilot_calisma.py` — Pilot study code. It tries combinations of different population sizes (30, 40, 50) and numbers of iterations (10,000, 50,000, 100,000).
+- `heuristic_project`.pdf` (Turkish: `Sezgisel_proje`) — Project report (method, experimental design, results).
 
-## Yöntem
+## Method
 
-Algoritma standart bir genetik algoritma iskeleti kullanır:
+The algorithm uses a standard genetic algorithm framework:
 
-- **Başlangıç popülasyonu:** Rastgele permütasyonlar
-- **Çaprazlama operatörleri:** OX (order crossover), edge recombination, ANX (alternating/neighbor-based)
-- **Mutasyon operatörleri:** exchange, inversion, scramble, displacement, insert
-- **Seçilim:** Fitness'e göre sıralama + elitizm
+- **Initial population:** Random permutations
+- **Crossover operators:** OX (order crossover), edge recombination, ANX (alternating/neighbor-based)
+- **Mutation operators:** exchange, inversion, scramble, displacement, insert
+- **Selection:** Ranking by fitness + elitism
 
-Her nesilde operatör seçimi rastgele olup, hangi çaprazlama/mutasyon türünün uygulanacağı rastgele bir sayı ile belirlenir.
+The operator is chosen randomly in each generation; the type of crossover/mutation to be applied is determined by a random number.
 
-### Test Edilen Parametreler (Ana Deney)
+### Tested Parameters (Main Experiment)
 
-| Parametre | Değerler |
+| Parameter | Values |
 |---|---|
-| Popülasyon büyüklüğü | 30 |
-| İterasyon sayısı | 1e5 |
-| Elitizm oranı (ER) | 0.1, 0.2, 0.3 |
-| Çaprazlama oranı (CR) | 0.5, 0.7, 0.9 |
-| Mutasyon oranı (MR) | 0.01, 0.05, 0.1 |
-| Seed | 0-9 (10 tekrar) |
-| Zaman limiti | 60 saniye/koşu |
+| Population size | 30 |
+| Number of iterations | 1e5 |
+| Elitism rate (ER) | 0.1, 0.2, 0.3 |
+| Crossover rate (CR) | 0.5, 0.7, 0.9 |
+| Mutation rate (MR) | 0.01, 0.05, 0.1 |
+| Seed | 0-9 (10 replications) |
+| Time limit | 60 seconds/run |
 
-### Sonuç
+### Conclusion
 
-Berlin52 dahil test edilen veri setlerinde, popülasyon 30 ve iterasyon 1e5 sabit tutulduğunda elitizm oranı 0.1, çaprazlama oranı 0.5, mutasyon oranı 0.01 kombinasyonu genellikle en iyi sonuçları vermiştir. Detaylı tablo ve karşılaştırmalar `Sezgisel_proje.pdf içindedir.
+Across the tested datasets, including Berlin52, with the population size fixed at 30 and the number of iterations fixed at 1e5, the combination of elitism rate 0.1, crossover rate 0.5, and mutation rate 0.01 generally gave the best results. Detailed tables and comparisons can be found in `heuristic_project.pdf` (Turkish: `Sezgisel_proje.pdf`).
